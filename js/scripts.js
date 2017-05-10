@@ -1,25 +1,40 @@
 //Business Logic
 
-// function newGame(names, player1, player2, turnScore, totalScore) {
-//   this.names = names;
-//   this.players = [player1, player2];
+// function Player(name) {
+//   this.name = name;
 //   this.turnScore = 0;
 //   this.totalScore = 0;
-// }
-// newGame.prototype.addScore = function(newRoll) {
-//   return this.score += newRoll
-// }
-//
-// function PigDice() {
+//   this.isTurn = false;
+//   this.dice = new Dice;
 // }
 //
-// PigDice.prototype.roll = function() {
-//   return Math.floor((Math.random() * 6) + 1);
-// };
+// Player.prototype.newGame = function () {
+//   this.roll = 0;
+//   this.tempscore = 0;
+//   this.totalscore = 0;
+// }
 
+
+function randomNumber() {
+  return Math.floor((Math.random() * 6) + 1);
+};
+
+var sumElements = function(someArray) {
+    if (someArray == null) return false;
+    var sum = 0;
+    for (var i = 0, len = someArray.length; i < len; i++) {
+        sum += someArray[i];
+    }
+    return sum;
+}
+
+// function player1TotalScore() {
+//   var = '#player1roll' +
+// }
 
 //User Interface
 $(document).ready(function() {
+
   // debugger;
   $("#names").submit(function(event) {
     event.preventDefault();
@@ -31,9 +46,17 @@ $(document).ready(function() {
     $("#names").hide();
     $("#game").show();
   });
-  // $("#play-one").submit(function(event) {
-  //   event.preventDefault();
-  //   var player;
-  //   $("result-one h3").text(player.score);
-  // });
+
+  $("#play-one").click(function() {
+    var numberRolled = randomNumber();
+    $("#player1roll").text(numberRolled);
+
+    var turnScoreArray = [];
+    turnScoreArray.push(numberRolled);
+    sumElements(turnScoreArray);
+
+    $("#player1score").text(turnScoreArray);
+
+  });
+
 });

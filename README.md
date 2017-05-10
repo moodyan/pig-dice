@@ -22,7 +22,8 @@ _If the player chooses to hold, all of the points rolled during that turn are ad
 | ------------- | ------------- | ------------- |
 | The players enter their names and click start game.  | "Alyssa" "Buna" "Start Game"  | Game interface and player names appear.  |
 | The program recognizes when the "Play" button is pushed and returns a random number between 1 and 6.  | "Play"  | 3  |
-| The program will add the players points together when the player presses hold. The program tells player one their total, and tells player two that it is their turn.  | "Play" "Play" "Play" "Hold"  | 3, 4, 6 = 13  |
+| The program will add the players points to turn score when the player presses roll.  | "Play" 3 "Play" 6 "Play" 4  | Turn Score = 13  |
+| The program will add the players points to total score when the play presses hold.  | "Hold"  | Total Score = 13  |
 | If the program returns 1, the program will stop and add "0" to their score and tells player two that it is their turn.  | "Play"  | 1 --> 0  |
 | The program retains the players' scores and when one player reaches a total of 100, the program declares the winner.  | 100 points  | "PLAYER ONE IS THE WINNER"  |
 
