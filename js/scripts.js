@@ -1,7 +1,7 @@
 //Business Logic
 
-function Player(turnScoreArray, totalScore) {
-  this.turnScoreArray = [];
+function Player(turnScore, totalScore) {
+  this.turnScore = turnScore;
   this.totalScore = totalScore
   // this.sum = 0;
   // this.i = 0;
@@ -9,27 +9,29 @@ function Player(turnScoreArray, totalScore) {
 
 Player.prototype.rollDie = function(){
   // var rollNumber = 0;
-
+debugger;
   var rollNumber = Math.floor((Math.random() * 6) + 1);
+  var diceArray = [];
 
   if (rollNumber !== 1){
-    this.turnScoreArray.push(rollNumber);
-  }else{
+    diceArray.push(rollNumber);
+  } else{
     rollNumber = "You rolled a 1";
-    this.turnScoreArray = 0;
+    diceArray = 0;
   }
 
+  this.turnScore = diceArray;
   return rollNumber;
   console.log(rollNumber);
-  return this.turnScoreArray;
-  console.log(this.turnScoreArray);
+
+  console.log(diceArray);
 
 };
 
 Player.prototype.addTurnScore = function(){
   // var rollNumber = 0;
 
-  for (var i = 0, sum = 0; i < this.turnScoreArray.length; sum += this.turnScoreArray[i++]);
+  for (var i = 0, sum = 0; i < this.turnScore.length; sum += this.turnScore[i++]);
     // console.log(sum);
     return sum;
 };
