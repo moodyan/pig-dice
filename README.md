@@ -20,7 +20,7 @@ _If the player chooses to hold, all of the points rolled during that turn are ad
 
 | Description  | Input Example | Output Example |
 | ------------- | ------------- | ------------- |
-| The program does not allow for anything other than numbers to be entered.  | e  | "Please enter a number."  |
+| The players enter their names and click start game.  | "Alyssa" "Buna" "Start Game"  | Game interface and player names appear.  |
 | The program recognizes when the "Play" button is pushed and returns a random number between 1 and 6.  | "Play"  | 3  |
 | The program will add the players points together when the player presses hold. The program tells player one their total, and tells player two that it is their turn.  | "Play" "Play" "Play" "Hold"  | 3, 4, 6 = 13  |
 | If the program returns 1, the program will stop and add "0" to their score and tells player two that it is their turn.  | "Play"  | 1 --> 0  |

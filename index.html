@@ -15,23 +15,34 @@
       </div>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6" id="player-one">
-          <h2>Player One</h2>
-          <button type="submit">PLAY</button>
-          <button type="submit">HOLD</button>
+      <form id="names">
+        <label for="player1">Player One Name</label>
+        <input type="text" id="player1name"><br>
+        <label for="player2">Player Two Name</label>
+        <input type="text" id="player2name"><br>
+
+        <button type="submit" id="start">Start Game</button>
+      </form>
+
+      <div class="row" id="game">
+        <div class="col-sm-6" id="player-one">
+          <h2>Player One: <span class="player1input"></span></h2>
+          <button type="click" id="play-one">PLAY</button>
+          <button type="click" id="hold-one">HOLD</button>
           <div id="result-one">
             <h4>Number Rolled</h4>
+            <h4>Turn Score</h4>
             <h2>Total Score</h2>
             <h3></h3>
           </div>
         </div>
-        <div class="col-lg-6" id="player-two">
-          <h2>Player Two</h2>
-          <button type="submit">PLAY</button>
-          <button type="submit">HOLD</button>
+        <div class="col-sm-6" id="player-two">
+          <h2>Player Two: <span class="player2input"></span></h2>
+          <button type="click" id="play-two">PLAY</button>
+          <button type="click" id="hold-two">HOLD</button>
           <div id="result-two">
             <h4>Number Rolled</h4>
+            <h4>Turn Score</h4>
             <h2>Total Score</h2>
             <h3></h3>
           </div>
