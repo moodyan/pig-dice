@@ -3,13 +3,14 @@
 function Player(score, turnScore) {
   this.score = score;
   this.turnScore = turnScore;
+  this.diceArray = [];
 }
 
 Player.prototype.rollDie = function(){
   // var rollScore = 0;
-  var diceArray = [];
 
   var rollScore = Math.floor((Math.random() * 6) + 1);
+
   if (rollScore !== 1){
     this.turnScore += rollScore;
   }else{
@@ -18,8 +19,8 @@ Player.prototype.rollDie = function(){
     return "You rolled a one!";
   }
 
-  diceArray.push(rollScore);
-  return diceArray;
+  this.diceArray.push(rollScore);
+  return this.diceArray;
 };
 
 
@@ -49,6 +50,7 @@ Player.prototype.rollDie = function(){
 $(document).ready(function() {
   $("#names").submit(function(event) {
     event.preventDefault();
+
     var player1Input = $('input#player1name').val();
     var player2Input = $('input#player2name').val();
     $(".player1Input").text(player1Input);
@@ -60,12 +62,13 @@ $(document).ready(function() {
   });
 
     $("#play-one").click(function() {
+          // debugger;
       var player1 = new Player(0, 0);
       var player2 = new Player(0, 0);
 
       var player1Dice = player1.rollDie();
       $("#player1Roll").text(player1Dice);
-      $("#player1Score").text(player1.turnScore);
+      $("#player1Score").text(player1.diceArray);
       $("#player-1-total-score").text(player1.score);
 
 
