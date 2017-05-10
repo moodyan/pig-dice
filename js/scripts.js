@@ -1,27 +1,39 @@
 //Business Logic
 
-function Player(score, turnScore) {
-  this.score = score;
-  this.turnScore = turnScore;
-  this.diceArray = [];
+function Player(turnScoreArray, totalScore) {
+  this.turnScoreArray = [];
+  this.totalScore = totalScore
+  // this.sum = 0;
+  // this.i = 0;
 }
 
 Player.prototype.rollDie = function(){
-  // var rollScore = 0;
+  // var rollNumber = 0;
 
-  var rollScore = Math.floor((Math.random() * 6) + 1);
+  var rollNumber = Math.floor((Math.random() * 6) + 1);
 
-  if (rollScore !== 1){
-    this.turnScore += rollScore;
+  if (rollNumber !== 1){
+    this.turnScoreArray.push(rollNumber);
   }else{
-    rollScore = 0;
-    this.turnScore = 0;
-    return "You rolled a one!";
+    rollNumber = "You rolled a 1";
+    this.turnScoreArray = 0;
   }
 
-  this.diceArray.push(rollScore);
-  return this.diceArray;
+  return rollNumber;
+  console.log(rollNumber);
+  return this.turnScoreArray;
+  console.log(this.turnScoreArray);
+
 };
+
+Player.prototype.addTurnScore = function(){
+  // var rollNumber = 0;
+
+  for (var i = 0, sum = 0; i < this.turnScoreArray.length; sum += this.turnScoreArray[i++]);
+    // console.log(sum);
+    return sum;
+};
+
 
 
 
@@ -67,9 +79,10 @@ $(document).ready(function() {
       var player2 = new Player(0, 0);
 
       var player1Dice = player1.rollDie();
+      var player1TurnScore = player1.addTurnScore();
       $("#player1Roll").text(player1Dice);
-      $("#player1Score").text(player1.diceArray);
-      $("#player-1-total-score").text(player1.score);
+      $("#player1Score").text(player1TurnScore);
+      // $("#player-1-total-score").text(player1.score);
 
 
   });
