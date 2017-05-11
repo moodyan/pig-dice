@@ -1,5 +1,9 @@
 //Business Logic
-turnArray = [];
+var turnArray = [];
+
+var player1 = new Player(0, 0);
+var player2 = new Player(0, 0);
+
 function Player(name) {
   // debugger;
   this.name = name;
@@ -67,17 +71,42 @@ $(document).ready(function() {
   });
 
   $("#play-one").click(function() {
-        // debugger;
-    var player1 = new Player(0, 0);
-    var player2 = new Player(0, 0);
+
 
     var player1Dice = player1.rollDie();
     var player1TurnScore = player1.addTurnScore();
+
     $("#player1-roll").text(player1Dice);
     $("#player1-score").text(player1TurnScore);
-    // $("#player-1-total-score").text(player1.score);
+    // $("#player-1-total-score").text(player1.TotalScore);
   });
   $("#hold-one").click(function() {
-      
+    var player1Hold = player1.hold();
+    $("#play-one").fadeOut("slow");
+    $("#hold-one").fadeOut("slow");
+    $("#play-two").fadeIn("slow");
+    $("#hold-two").fadeIn("slow");
+
   });
+
+  $("#play-two").click(function() {
+
+
+    var player2Dice = player2.rollDie();
+    var player2TurnScore = player2.addTurnScore();
+
+    $("#player2-roll").text(player2Dice);
+    $("#player2-score").text(player2TurnScore);
+    // $("#player-2-total-score").text(player2.TotalScore);
+  });
+
+  $("#hold-two").click(function() {
+    var player2Hold = player2.hold();
+    $("#play-two").fadeOut("slow");
+    $("#hold-two").fadeOut("slow");
+    $("#play-one").fadeIn("slow");
+    $("#hold-one").fadeIn("slow");
+
+  });
+
 });

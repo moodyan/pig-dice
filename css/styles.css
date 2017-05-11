@@ -1,3 +1,11 @@
 /*#game {
   display: none;
 }*/
+
+#play-two {
+  display: none;
+}
+
+#hold-two {
+  display: none;
+}
