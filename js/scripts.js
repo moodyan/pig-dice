@@ -1,11 +1,11 @@
 //Business Logic
 var turnArray = [];
+var totalArray = [];
 
 var player1 = new Player(0, 0);
 var player2 = new Player(0, 0);
 
 function Player(name) {
-  // debugger;
   this.name = name;
   this.totalScore = 0;
   this.turnScore = 0;
@@ -13,8 +13,6 @@ function Player(name) {
 }
 
 Player.prototype.rollDie = function(){
-// debugger;
-
   var roll = Math.floor((Math.random() * 6) + 1);
 
   if (roll !== 1){
@@ -27,28 +25,27 @@ Player.prototype.rollDie = function(){
 }
 
 Player.prototype.addTurnScore = function(){
- // debugger;
   for (var i = 0, sum = 0; i < turnArray.length; sum += turnArray[i++]); {
-    this.turnScore += sum;
+    this.turnScore = sum;
     return sum;
-
   }
 }
 
+
 Player.prototype.hold = function() {
-  this.totalScore += this.turnScore
+  this.totalScore += this.turnScore;
   this.turnScore = 0;
   turnArray = [];
-  return this.totalScore
+  return this.totalScore;
 }
 
 // Player.prototype.newTurn = function() {
 //   this.turnScore = 0;
 // };
 //
-// Player.prototype.scoreCheck = function() {
-//   if(this.score >= 100){
-//     return "Win";
+// Player.prototype.win = function() {
+//   if(this.totalScore >= 100){
+//     return "YOU WIN!";
 //   };
 // };
 //
@@ -74,15 +71,13 @@ $(document).ready(function() {
   });
 
   $("#play-one").click(function() {
-
-
     var player1Dice = player1.rollDie();
     var player1TurnScore = player1.addTurnScore();
 
     $("#player1-roll").text(player1Dice);
     $("#player1-score").text(player1TurnScore);
-    // $("#player-1-total-score").text(player1.TotalScore);
   });
+
   $("#hold-one").click(function() {
     var player1Score = player1.hold();
     $("#player1-total-score").text(player1Score);
@@ -91,18 +86,14 @@ $(document).ready(function() {
     $("#hold-one").fadeOut("slow");
     $("#play-two").fadeIn("slow");
     $("#hold-two").fadeIn("slow");
-
   });
 
   $("#play-two").click(function() {
-
-
     var player2Dice = player2.rollDie();
     var player2TurnScore = player2.addTurnScore();
 
     $("#player2-roll").text(player2Dice);
     $("#player2-score").text(player2TurnScore);
-    // $("#player-2-total-score").text(player2.TotalScore);
   });
 
   $("#hold-two").click(function() {

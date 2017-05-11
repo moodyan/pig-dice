@@ -1,6 +1,6 @@
-#game {
+/*#game {
   display: none;
-}
+}*/
 
 #play-two {
   display: none;
@@ -9,3 +9,34 @@
 #hold-two {
   display: none;
 }
+
+/*#player-one {
+  height: 300px;
+  margin: 10px;
+border:solid 5px white;
+background-color:white;
+}
+
+#player-two {
+  height: 300px;
+  margin: 10px;
+  border:solid 5px white;
+  background-color:white;
+}
+
+#names {
+  height: auto;
+  margin: 10px;
+  padding: 10px;
+  border:solid 5px white;
+  background-color:lightgrey;
+}
+
+.jumbotron {
+  background: linear-gradient(to bottom, black, #BC8F8F);
+        color: white;
+}
+
+body {
+  background-color: #BC8F8F;
+}*/
