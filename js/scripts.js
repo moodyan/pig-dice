@@ -14,6 +14,7 @@ function Player(name) {
 
 Player.prototype.rollDie = function(){
 // debugger;
+
   var roll = Math.floor((Math.random() * 6) + 1);
 
   if (roll !== 1){
@@ -23,20 +24,22 @@ Player.prototype.rollDie = function(){
     return roll = "You rolled a 1";
   }
   return roll;
-};
+}
 
 Player.prototype.addTurnScore = function(){
  // debugger;
   for (var i = 0, sum = 0; i < turnArray.length; sum += turnArray[i++]); {
     this.turnScore += sum;
-    console.log(this.turnScore);
     return sum;
+
   }
-};
+}
 
 Player.prototype.hold = function() {
   this.totalScore += this.turnScore
   this.turnScore = 0;
+  turnArray = [];
+  return this.totalScore
 }
 
 // Player.prototype.newTurn = function() {
@@ -81,7 +84,9 @@ $(document).ready(function() {
     // $("#player-1-total-score").text(player1.TotalScore);
   });
   $("#hold-one").click(function() {
-    var player1Hold = player1.hold();
+    var player1Score = player1.hold();
+    $("#player1-total-score").text(player1Score);
+
     $("#play-one").fadeOut("slow");
     $("#hold-one").fadeOut("slow");
     $("#play-two").fadeIn("slow");
@@ -101,7 +106,9 @@ $(document).ready(function() {
   });
 
   $("#hold-two").click(function() {
-    var player2Hold = player2.hold();
+    var player2Score = player2.hold();
+    $("#player2-total-score").text(player2Score);
+
     $("#play-two").fadeOut("slow");
     $("#hold-two").fadeOut("slow");
     $("#play-one").fadeIn("slow");
