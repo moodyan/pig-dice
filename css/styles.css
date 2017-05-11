@@ -10,7 +10,7 @@
   display: none;
 }
 
-/*#player-one {
+#player-one {
   height: 300px;
   margin: 10px;
 border:solid 5px white;
@@ -29,14 +29,16 @@ background-color:white;
   margin: 10px;
   padding: 10px;
   border:solid 5px white;
-  background-color:lightgrey;
+  background-color:white;
 }
 
 .jumbotron {
-  background: linear-gradient(to bottom, black, #BC8F8F);
-        color: white;
+  background-color: #FF4136;
+  color: #001F3F;
+  /*fff;*/
 }
 
 body {
-  background-color: #BC8F8F;
-}*/
+  background-color: #85144B;
+  color: #ddd;
+}
