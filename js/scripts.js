@@ -1,39 +1,30 @@
 //Business Logic
-
-function Player(turnScore, totalScore) {
+var turnArray = [];
+function Player(name, totalScore, turnScore) {
+  this.name = name;
+  this.totalScore = totalScore;
   this.turnScore = turnScore;
-  this.totalScore = totalScore
-  // this.sum = 0;
-  // this.i = 0;
 }
 
 Player.prototype.rollDie = function(){
-  // var rollNumber = 0;
-debugger;
-  var rollNumber = Math.floor((Math.random() * 6) + 1);
-  var diceArray = [];
 
-  if (rollNumber !== 1){
-    diceArray.push(rollNumber);
+  var roll = Math.floor((Math.random() * 6) + 1);
+
+  if (roll !== 1){
+    this.turnScore += roll;
   } else{
-    rollNumber = "You rolled a 1";
-    diceArray = 0;
+    this.turnScore = 0;
+    return roll = "You rolled a 1";
   }
-
-  this.turnScore = diceArray;
-  return rollNumber;
-  console.log(rollNumber);
-
-  console.log(diceArray);
-
+  turnArray.push(roll);
+  return roll;
 };
 
 Player.prototype.addTurnScore = function(){
-  // var rollNumber = 0;
 
-  for (var i = 0, sum = 0; i < this.turnScore.length; sum += this.turnScore[i++]);
-    // console.log(sum);
+  for (var i = 0, sum = 0; i < turnArray.length; sum += turnArray[i++]); {
     return sum;
+  }
 };
 
 
